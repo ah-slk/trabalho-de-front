@@ -1,0 +1,4 @@
+ .list_imgs{
+    display: flex;
+    flex-direction: column;
+ }

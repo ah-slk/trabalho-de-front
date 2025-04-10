@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <title>Alterar Cor de Fundo com Degradê</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #B2E0E0, #FFFFFF); /* Degradê de azul bebê para branco */
+            transition: background 0.5s; /* Transição suave ao mudar o fundo */
+        }
+
+        a {
+            color: #0000EE; /* Cor padrão dos links */
+            text-decoration: none; /* Remove o sublinhado dos links */
+            transition: color 0.5s; /* Transição suave ao mudar a cor da fonte */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Brenda, Karina, Anny 3ºA</h1>
+    
+    <label for="color1Picker">Escolha a primeira cor do degradê:</label>
+    <input type="color" id="color1Picker" value="#B2E0E0">
+
+    <label for="color2Picker">Escolha a segunda cor do degradê:</label>
+    <input type="color" id="color2Picker" value="#FFFFFF">
+
+    <label for="fontColorPicker">Escolha a cor da fonte dos links:</label>
+    <input type="color" id="fontColorPicker" value="#0000EE">
+
+    <div class="list_imgs">
+        <div>
+            <img src=" pop.jpg" alt="some text" width=250 height=250>
+            <a href=" https://www.youtube.com/watch?v=cxhqqpVk65Q"> Dança de key pop</a>
+        </div>
+        <div>
+            <img src=" lana.jpg" alt="some text" width=250 height=250>
+            <a href=" https://www.youtube.com/watch?v=GVQON-muEFc"> Obra de arte  </a>
+        </div>
+        <div>
+            <img src="  hariel.jpg" alt="some text" width=250 height=250>
+            <a href="  https://www.youtube.com/watch?v=W7JI_SQaXpU">  Uma das melhores 🔥 </a>
+        </div>
+    </div>
+
+
+    <script>
+        // Seleciona os inputs de cor
+        const color1Picker = document.getElementById('color1Picker');
+        const color2Picker = document.getElementById('color2Picker');
+        const fontColorPicker = document.getElementById('fontColorPicker');
+
+        // Função para atualizar o fundo com o degradê
+        function updateBackground() {
+            document.body.style.background = `linear-gradient(to bottom, ${color1Picker.value}, ${color2Picker.value})`;
+        }
+
+        // Adiciona eventos para mudar a cor de fundo quando as cores forem alteradas
+        color1Picker.addEventListener('input', updateBackground);
+        color2Picker.addEventListener('input', updateBackground);
+
+        // Adiciona um evento para mudar a cor da fonte dos links quando a cor for alterada
+        fontColorPicker.addEventListener('input', function() {
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.style.color = fontColorPicker.value;
+            });
+        });
+
+        // Inicializa o fundo com as cores padrão
+        updateBackground();
+    </script>
+</body>
+
+</html>
